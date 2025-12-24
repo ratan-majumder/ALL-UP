@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ratan Panel</title>
+<style>
+  :root{
+    --green:#00ff9d;
+    --blue:#00c8ff;
+    --bg:#02060a;
+    font-family:Poppins, sans-serif;
+  }
+  body{margin:0;background:var(--bg);color:white;overflow-x:hidden}
+
+  #particles{position:fixed;inset:0;z-index:0}
+
+  .wrap{position:relative;z-index:2;min-height:100vh;padding:40px;display:flex;justify-content:center;align-items:center}
+
+  .box{
+    width:100%;max-width:900px;background:rgba(0,0,0,0.45);backdrop-filter:blur(10px);
+    padding:30px;border-radius:20px;box-shadow:0 0 40px rgba(0,255,180,0.15);
+    animation:glowBox 4s infinite;
+  }
+
+  @keyframes glowBox{
+    0%{box-shadow:0 0 40px rgba(0,255,180,0.15)}
+    50%{box-shadow:0 0 70px rgba(0,255,180,0.35)}
+    100%{box-shadow:0 0 40px rgba(0,255,180,0.15)}
+  }
+
+  .logo{
+    width:140px;height:140px;margin:0 auto 20px;display:grid;place-items:center;
+    border:2px solid rgba(0,255,180,0.3);border-radius:20px;background:rgba(0,0,0,0.3);
+    transition:.3s;overflow:hidden;
+  }
+  .logo:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(0,255,180,0.4)}
+
+  .panels{display:flex;flex-direction:column;gap:15px;margin-top:20px}
+  .btn{
+    padding:15px;border-radius:14px;background:linear-gradient(90deg,var(--green),var(--blue));
+    text-decoration:none;color:black;font-weight:700;text-align:center;font-size:18px;
+    position:relative;overflow:hidden;
+    box-shadow:0 0 20px rgba(0,255,200,0.3);transition:0.25s;
+  }
+  .btn:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(0,255,200,0.5)}
+
+  .btn:active::after{
+    content:"";position:absolute;width:160px;height:160px;background:rgba(255,255,255,0.4);
+    border-radius:50%;left:var(--x);top:var(--y);transform:translate(-50%,-50%);
+    animation:ripple .4s ease-out;
+  }
+  @keyframes ripple{
+    from{opacity:1;transform:translate(-50%,-50%) scale(0.2)}
+    to{opacity:0;transform:translate(-50%,-50%) scale(2.5)}
+  }
+
+  .socials{margin-top:25px;display:flex;justify-content:center;gap:12px}
+  .social-btn{
+    padding:10px 14px;background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);border-radius:12px;
+    color:white;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:6px;
+    transition:0.3s;
+  }
+  .social-btn:hover{transform:scale(1.07);box-shadow:0 0 15px rgba(255,255,255,0.24)}
+
+  /* Tutorial buttons */
+  .tutorials{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .tuto-btn{
+    padding:12px 18px;
+    border-radius:14px;
+    font-weight:800;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#00ff9d,#00c8ff);
+    box-shadow:0 0 18px rgba(0,255,200,.35);
+    transition:.25s;
+  }
+  .tuto-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 28px rgba(0,255,200,.6);
+  }
+  .tuto-btn span{
+    display:block;
+    font-size:12px;
+    opacity:.85;
+  }
+
+  @media(max-width:600px){.btn{font-size:16px;padding:12px}}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="wrap">
+  <div class="box">
+
+    <div class="logo">
+      <img src="ratan.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:20px;" />
+    </div>
+
+    <div class="hackbox" style="margin-top:15px;padding:12px;border:1px solid rgba(0,255,180,0.3);border-radius:14px;">
+      <div class="term" style="background:rgba(0,0,0,0.35);border-radius:10px;padding:10px;font-family:monospace;color:#9affb8">
+        <div style="font-size:12px;font-weight:800">HACKING SYSTEM — TERMINAL</div>
+        <div id="termBody" style="font-size:13px;height:92px;overflow:hidden"></div>
+      </div>
+    </div>
+
+    <div class="panels">
+      <a class="btn" href="https://ratan-majumder.github.io/ssenci/" target="_blank">mobile sensi</a>
+      <a class="btn" href="https://ratan-majumder.github.io/key/" target="_blank">pc panel</a>
+      <a class="btn" href="https://ratan-majumder.github.io/ratanmajumder-emote/" target="_blank">Emote Panel</a>
+      <a class="btn" href="https://ratan-majumder.github.io/unban-bw/" target="_blank">FF ID Unban</a>
+    </div>
+
+    <div class="socials">
+      <a class="social-btn" style="background:#ff0000;border:none" href="https://www.youtube.com/@YOUTUBERJOY22/videos" target="_blank">▶ YouTube</a>
+      <a class="social-btn" style="background:#000;border:none" href="https://www.tiktok.com/@ratanmajumder001" target="_blank">♛ TikTok</a>
+    </div>
+
+    <!-- Tutorial Buttons -->
+    <div class="tutorials">
+      <a class="tuto-btn" href="https://www.youtube.com/@Ratan-Web-Guide/videos" target="_blank">
+         Tutorials
+        <span>Full Guide & Tricks1 to 8</span>
+      </a>
+
+      
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const lines=[
+    'init() loading...',
+    'auth: guest',
+    'connect: YouTube',
+    'connect: TikTok',
+    'firewall: bypass',
+    'status: active'
+  ];
+  let i=0;
+  const b=document.getElementById('termBody');
+  setInterval(()=>{
+    b.innerHTML='';
+    for(let x=0;x<5;x++){
+      const d=document.createElement('div');
+      d.textContent='» '+lines[(i+x)%lines.length]+' // '+Math.floor(Math.random()*99999);
+      b.appendChild(d);
+    }
+    i++;
+  },900);
+})();
+
+const c=document.getElementById('particles'),ctx=c.getContext('2d');
+let w=c.width=innerWidth,h=c.height=innerHeight;
+let p=[...Array(80)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5),vy:(Math.random()-.5)}));
+function loop(){
+  ctx.clearRect(0,0,w,h);
+  p.forEach(a=>{
+    a.x+=a.vx;a.y+=a.vy;
+    if(a.x<0||a.x>w||a.y<0||a.y>h){a.x=Math.random()*w;a.y=Math.random()*h}
+    ctx.fillStyle='rgba(0,255,200,.7)';
+    ctx.beginPath();ctx.arc(a.x,a.y,2,0,6.28);ctx.fill();
+  });
+  requestAnimationFrame(loop);
+}
+loop();
+onresize=()=>{w=c.width=innerWidth;h=c.height=innerHeight};
+</script>
+
+</body>
+</html>
